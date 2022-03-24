@@ -21,24 +21,11 @@ function Landing({setUser}) {
         }).then(r => r.json()).then(user => setUser(user))
     }
 
-    const handleLogout = () => {
+    const onLogout = () => {
         fetch('/logout', {
             method: 'DELETE'
-        }).then(() => onLogout())
+        }).then(() => setUser(null))
     }
-
-    const onLogout = () => {
-        setUser(null)
-    }
-    // const addComment = (newComment) => {
-    //     fetch(`http://localhost:9292/comments/activities/${id}`,{
-    //       method:'POST',
-    //       headers:{"Content-Type": "application/json"},
-    //       body: JSON.stringify(newComment)
-    //     })
-    //     .then(r => r.json())
-    //     .then(newComment => setAllComments( [...allComments, newComment]))   
-    //   }
 
     return (
     <div>

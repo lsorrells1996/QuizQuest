@@ -7,13 +7,6 @@ function App() {
 
     const [user, setUser] = useState(null);
 
-    
-    fetch('/me').then(r => {
-        if (r.ok) {
-            r.json().then(user => setUser(user))
-        }
-    })
-    console.log(user)
     return (
     <BrowserRouter>
         <Routes>
