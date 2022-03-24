@@ -5,6 +5,7 @@ function Landing({setUser}) {
     const [password, setPassword] = useState('')
     // const [createUsername, setCreateUsername] = useState('')
     // const [createPassword, setCreatePassword] = useState('')
+    // const [passwordConfirmation, setPasswordConfirmation] = useState('')
     // const [email, setEmail] = useState('')
 
     const onLogin = e => {
