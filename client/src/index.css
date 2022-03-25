@@ -12,3 +12,10 @@ body {
       monospace;
   }
   
+  a {
+    color: black;
+  }
+
+  ul.nav a:hover { 
+    color: #fff !important; 
+  }

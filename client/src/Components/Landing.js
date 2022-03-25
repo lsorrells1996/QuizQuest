@@ -29,17 +29,28 @@ function Landing({setUser}) {
     }
 
     return (
-    <div>
-        <form onSubmit={onLogin}>
-            <label>Username
-                <input onChange={(e) => setUsername(e.target.value)} type="text" placeholder="Username..."/>
-            </label>
-            <label>Password
-                <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password..."/>
-            </label>
-            <button type="submit">login</button>
-            <button onClick={onLogout}>logout</button>
-        </form>
+    <div className='container'>
+        <div align='center' className='my-5'>
+            <h1>Welcome to Quiz Town! Log your ass in...</h1>
+        </div>
+        <div className='col'>
+            <form onSubmit={onLogin} align="center" className='container'>
+                <div className='row'>
+                    <label><div>Username</div>
+                        <input className='mb-3 ms-3' onChange={(e) => setUsername(e.target.value)} type="text" placeholder="Username..."/>
+                    </label>
+                </div>
+                <div className='row'>
+                    <label><div>Password</div>
+                        <input className='mb-4 ms-3' onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password..."/>
+                    </label>
+                </div>
+                <div>
+                    <button type="submit">Login</button>
+                    {/* <button onClick={onLogout}>logout</button> */}
+                </div>
+            </form>
+        </div>
     </div>
     )
 }
