@@ -1,11 +1,15 @@
 import React, {useState} from 'react'
+import { useNavigate } from "react-router-dom"
+
 
 function Home( {setUser} ) {
+    const navigate = useNavigate()
 
     const onLogout = () => {
         fetch('/logout', {
             method: 'DELETE'
         }).then(() => setUser(null))
+        navigate('/')
     }
 
     return (
