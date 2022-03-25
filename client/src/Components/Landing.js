@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { useNavigate } from "react-router-dom"
 
 function Landing({setUser}) {
     const [username, setUsername] = useState('')
@@ -7,6 +8,7 @@ function Landing({setUser}) {
     // const [createPassword, setCreatePassword] = useState('')
     // const [passwordConfirmation, setPasswordConfirmation] = useState('')
     // const [email, setEmail] = useState('')
+    const navigate = useNavigate()
 
     const onLogin = e => {
         e.preventDefault()
@@ -20,12 +22,7 @@ function Landing({setUser}) {
                 password
             })
         }).then(r => r.json()).then(user => setUser(user))
-    }
-
-    const onLogout = () => {
-        fetch('/logout', {
-            method: 'DELETE'
-        }).then(() => setUser(null))
+        navigate('/home')
     }
 
     return (
