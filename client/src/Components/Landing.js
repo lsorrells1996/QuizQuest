@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from "react-router-dom"
 
-function Landing({setUser}) {
+function Landing({setUser, user}) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [createUsername, setCreateUsername] = useState('')
@@ -28,7 +28,7 @@ function Landing({setUser}) {
             }
         })
     }
-
+ 
     const onSignup = e => {
         e.preventDefault()
         fetch('/signup', {

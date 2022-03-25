@@ -1,15 +1,15 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { useNavigate } from "react-router-dom"
 import NavBar from './NavBar'
 
-function Home( {setUser} ) {
+function Home( {setUser, user} ) {
     const navigate = useNavigate()
-
 
 
     return (
         <>
-            <NavBar setUser={setUser}/>
+            <NavBar setUser={setUser} user={user}/>
+            <h1></h1>
         </>
     )
 
