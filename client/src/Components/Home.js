@@ -25,12 +25,6 @@ function Home( {setUser} ) {
                     <li className="nav-item">
                         <a className="nav-link link-dark" href="#">Link</a>
                     </li>
-                    <li className="nav-item">
-                        <a className="nav-link link-dark" href="#">Link</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link link-dark" href="#">Link</a>
-                    </li>
                 </ul>
                 <button onClick={onLogout} className="me-5">Logout</button>
             </nav>
