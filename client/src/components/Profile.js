@@ -7,7 +7,7 @@ function Profile({setUser, user}) {
     return (
     <>
         <NavBar/>
-        <h1>Hello</h1>
+        <h1>HI </h1>
     </>
     )
 }

@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react"
 import { Routes, Route, BrowserRouter } from "react-router-dom"
-import Landing from "./Components/Landing";
-import Home from "./Components/Home"
-import Profile from "./Components/Profile";
+import Landing from "./Landing";
+import Home from "./Home"
+import Profile from "./Profile";
 
 function App() {
 
