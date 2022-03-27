@@ -23,6 +23,7 @@ function Landing({setUser, user}) {
             })
         }).then(r => {
             if (r.ok) {
+                // What I'm not getting is that user is "null" if you log it here:
                 r.json().then(user => setUser(user))
                 navigate('/home')
             }

@@ -1,15 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
 import NavBar from './NavBar'
+import QuizCard from './QuizCard'
 
 function Home( {setUser, user} ) {
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
+    const [quizzes, setQuizzes] = useState([])
 
+    useEffect(() => {
+        fetch('/quizzes').then(r => {
+            if (r.ok) {
+                r.json().then(q => setQuizzes(q))
+            }
+        })
+    }, [])
 
     return (
         <>
             <NavBar setUser={setUser} user={user}/>
-            <h1></h1>
+            <div className='container'>
+                {quizzes.map( q => {
+                    return <QuizCard key={q.id} topic={q.topic} title={q.title} />
+                })}
+            </div>
+            
         </>
     )
 
