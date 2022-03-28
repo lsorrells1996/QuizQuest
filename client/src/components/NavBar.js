@@ -14,10 +14,10 @@ function NavBar({setUser, user}) {
   }
     
     return (
-    <nav class="navbar navbar-light bg-secondary">
-        <ul class="nav">
+    <nav className="navbar navbar-light bg-secondary">
+        <ul className="nav">
             <li className='nav-item'>
-                <a class="navbar-brand" href="#">
+                <a className="navbar-brand" href="/home">
                 <img src="https://res.cloudinary.com/dhaek7qxl/image/upload/v1648183355/Book-icon_anzcyj.jpg" alt="" width="30" height="24" className='mx-2'></img>
                 {user ? `Welcome to QuizTown, ${user.username}` : 'Welcome to QuizTown' }
                 </a>
