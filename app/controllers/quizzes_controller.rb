@@ -6,12 +6,7 @@ class QuizzesController < ApplicationController
     end
 
     def show
-        questions = Quiz.find(params[:id])
-        if questions
-            render json: questions
-        else
-            render json: { error: "Quiz questions not found" }, status: :not_found
-        end
+        render json: Quiz.find(params[:id]), include: ['questions', 'questions.answers'], status: :ok
     end
 
 end

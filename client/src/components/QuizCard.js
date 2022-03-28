@@ -1,6 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-function QuizCard({ topic, title, id }) {
+function QuizCard({ topic, title, id, user }) {
+
+    const [userQuiz, setUserQuiz] = useState([])
+    const navigate = useNavigate()
+
+    const createUserQuiz = () => {
+        fetch('/user_quizzes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user_id: user.id,
+                quiz_id: id
+            })
+        }).then(r => {
+            if (r.ok) {
+                r.json().then(newUserQuiz => setUserQuiz(newUserQuiz))
+                navigate(`/quiz/${id}`)
+            }
+        })
+    }
 
     return (
         <div className='container mt-5' align='center'>
@@ -9,7 +31,7 @@ function QuizCard({ topic, title, id }) {
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
                     {/* <p className="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
-                    <a href={`/quiz/${id}`} className="btn btn-primary">Quiz Me!</a>
+                    <a onClick={createUserQuiz} className="btn btn-primary">Quiz Me!</a>
             </div>
         </div>
     </div >

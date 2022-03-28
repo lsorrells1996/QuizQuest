@@ -1,5 +1,5 @@
 class Quiz < ApplicationRecord
     has_many :user_quizzes, dependent: :destroy
-    has_many :questions
+    has_many :questions, dependent: :destroy
     has_many :users, through: :user_quizzes
 end

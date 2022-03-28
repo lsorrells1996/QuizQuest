@@ -25,7 +25,18 @@ function Profile({setUser, user}) {
             }
         })
     }
-    
+
+    const handleAccountDelete = () => {
+        fetch('/users/:id', {
+            method: 'DELETE'
+        }).then(r => {
+            if (r.ok) {
+                setUser(null)
+                navigate('/')
+            }
+        })
+    }
+
     
     return (
     <>
@@ -39,7 +50,10 @@ function Profile({setUser, user}) {
                     </label>
                 </div>
                 <div>
-                    <button type="submit">Update</button>
+                    <button className='mb-3 ms-3' type="submit">Update</button>
+                </div>
+                <div>
+                    <button className='mb-3 ms-3' type="button" onClick={handleAccountDelete}>Delete Account</button>
                 </div>
             </form>
         </div>
