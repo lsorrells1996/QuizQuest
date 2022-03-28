@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # resources :answers
   # resources :questions
   # resources :quizzes
-  # resources :users, only: :create
+  resources :users, only: :update
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

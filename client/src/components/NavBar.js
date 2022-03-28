@@ -4,13 +4,6 @@ import { useNavigate } from "react-router-dom"
 function NavBar({setUser, user}) {
     const navigate = useNavigate()
 
-//     const onLogout = () => {
-//     fetch('/logout', {
-//         method: 'DELETE'
-//     }).then(() => setUser(''))
-//     navigate('/')
-// }
-
     const onLogout = () => {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -26,7 +19,7 @@ function NavBar({setUser, user}) {
             <li className='nav-item'>
                 <a class="navbar-brand" href="#">
                 <img src="https://res.cloudinary.com/dhaek7qxl/image/upload/v1648183355/Book-icon_anzcyj.jpg" alt="" width="30" height="24" className='mx-2'></img>
-                Welcome to QuizTown,
+                {user ? `Welcome to QuizTown, ${user.username}` : 'Welcome to QuizTown' }
                 </a>
             </li>
             <li className="nav-item">

@@ -4,7 +4,7 @@ class User < ApplicationRecord
     has_many :quizzes, through: :user_quizzes
 
     validates :username, presence: :true
-    validates :email, presence: :true, uniqueness: :true
-    validates :password, presence: :true, confirmation: :true
-    validates :password_confirmation, presence: :true
+    validates :email, presence: :true, uniqueness: :true, on: :create
+    validates :password, presence: :true, confirmation: :true, on: :create
+    validates :password_confirmation, presence: :true, on: :create
 end
