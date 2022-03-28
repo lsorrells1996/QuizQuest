@@ -54,7 +54,7 @@ function Landing({setUser, user}) {
     return (
     <div className='container'>
         <div align='center' className='my-5'>
-            <h1>Welcome to Quiz Town! Log your ass in...</h1>
+            <h1>Welcome to Quiz Town!</h1>
         </div>
         <div className='col'>
             <form onSubmit={onLogin} align="center" className='container'>

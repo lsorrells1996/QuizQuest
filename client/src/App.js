@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 import Landing from "./Components/Landing";
 import Home from "./Components/Home"
+import Addition from "./Components/Addition";
 import Profile from "./Components/Profile";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path= "/" element={<Landing setUser={setUser} user={user}/>}/>
             <Route path= "/home" element={<Home setUser={setUser} user={user}/>}/>
             <Route path= "/profile" element={<Profile setUser={setUser} user={user}/>}/>
+            <Route path= "/addition" element={<Addition />}/>
         </Routes>
     </BrowserRouter>
     );
