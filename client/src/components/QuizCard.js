@@ -1,7 +1,6 @@
 import React from 'react'
 
-function QuizCard({ topic, title }) {
-
+function QuizCard({ topic, title, id }) {
 
     return (
         <div className='container mt-5' align='center'>
@@ -10,7 +9,7 @@ function QuizCard({ topic, title }) {
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
                     {/* <p className="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
-                    <a href={`/${title.toLowerCase()}`} className="btn btn-primary">Quiz Me!</a>
+                    <a href={`/quiz/${id}`} className="btn btn-primary">Quiz Me!</a>
             </div>
         </div>
     </div >

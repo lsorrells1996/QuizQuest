@@ -20,7 +20,7 @@ function Home( {setUser, user} ) {
             <NavBar setUser={setUser} user={user}/>
             <div className='container'>
                 {quizzes.map( q => {
-                    return <QuizCard key={q.id} topic={q.topic} title={q.title} />
+                    return <QuizCard key={q.id} id={q.id} topic={q.topic} title={q.title} />
                 })}
             </div>
             
