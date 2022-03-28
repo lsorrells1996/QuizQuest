@@ -4,12 +4,21 @@ import { useNavigate } from "react-router-dom"
 function NavBar({setUser, user}) {
     const navigate = useNavigate()
 
+//     const onLogout = () => {
+//     fetch('/logout', {
+//         method: 'DELETE'
+//     }).then(() => setUser(''))
+//     navigate('/')
+// }
+
     const onLogout = () => {
-    fetch('/logout', {
-        method: 'DELETE'
-    }).then(() => setUser(null))
-    navigate('/')
-}
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null)
+        navigate('/')
+      }
+    })
+  }
     
     return (
     <nav className="navbar navbar-light bg-secondary">
