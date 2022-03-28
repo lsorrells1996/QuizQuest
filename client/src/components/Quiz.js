@@ -1,15 +1,19 @@
 import React, {useState, useEffect} from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-function Addition() {
+function Quiz() {
 	const navigate = useNavigate()
     const [answers, setAnswers] = useState([])
+	let params = useParams()
 
     useEffect(() => {
-        fetch('/answers').then(r => {
+		// console.log(id)
+        fetch(`/quizzes/${params.id}`).then(r => {
             if (r.ok) {
                 r.json().then(a => setAnswers(a))
-            }
+            } else {
+				console.log("failed")
+			}
         })
     }, [])
 
@@ -101,4 +105,4 @@ function Addition() {
 	);
 }
 
-export default Addition
+export default Quiz

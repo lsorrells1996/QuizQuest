@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react"
 import { Routes, Route, BrowserRouter } from "react-router-dom"
-import Landing from "./Landing";
-import Home from "./Home"
-import Quiz from "./Quiz";
-import Profile from "./Profile";
+import Landing from "./Components/Landing";
+import Home from "./Components/Home"
+import Addition from "./Components/Quiz";
+import Profile from "./Components/Profile";
 
 function App() {
 
@@ -24,7 +24,7 @@ function App() {
             <Route path= "/" element={<Landing setUser={setUser} user={user}/>}/>
             <Route path= "/home" element={<Home setUser={setUser} user={user}/>}/>
             <Route path= "/profile" element={<Profile setUser={setUser} user={user}/>}/>
-            <Route path= "/quiz/:id" element={<Quiz />}/>
+            <Route path= "/addition" element={<Addition />}/>
         </Routes>
     </BrowserRouter>
     );
