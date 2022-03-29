@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/me', to: 'users#show'
 
-  get '/questions/:quiz_id', to: 'questions#show'
+  patch '/score', to: 'user_quizzes#update'
 
-  get '/answers/:question_id', to: 'answers#show'
+
 
 end

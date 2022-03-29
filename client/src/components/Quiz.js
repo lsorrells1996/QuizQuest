@@ -8,6 +8,7 @@ function Quiz() {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
+	const [finalScore, setFinalScore] = useState(0)
 	let params = useParams()
 
 	useEffect(() => {
@@ -37,11 +38,28 @@ function Quiz() {
         navigate('/home')
     }
 
+	const updateScore = () => {
+		fetch('/score', {
+			method: 'PATCH',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				score
+			})
+		}).then(r => {
+			if (r.ok) {
+				r.json().then(data => setFinalScore(data))
+			}
+		})
+	}
+
 	return (
 		<div className='app'>
 			{question ? showScore ? (
 				<div className='score-section'>
 					You scored {score} out of {question.length}
+					{updateScore()}
                     <button onClick={goHome}>Home</button>
 				</div>
 			) : (

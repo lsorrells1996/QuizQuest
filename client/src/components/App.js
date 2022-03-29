@@ -8,6 +8,7 @@ import Profile from "./Profile";
 function App() {
 
     const [user, setUser] = useState(null);
+    
 
     useEffect(() => {
         fetch('/me').then(r => {
