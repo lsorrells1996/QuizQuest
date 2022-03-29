@@ -26,7 +26,7 @@ function NavBar({setUser, user}) {
                 <a className="nav-link link-dark" href="/profile">Profile</a>
             </li>
         </ul>
-        <button onClick={onLogout} className="me-5">Logout</button>
+        <a onClick={onLogout} className="btn btn-primary me-5">Logout</a>
     </nav>
   )
 }

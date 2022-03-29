@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 
-
 function Quiz() {
 	const navigate = useNavigate()
     const [question, setQuestion] = useState('')
@@ -38,26 +37,39 @@ function Quiz() {
     }
 
 	return (
-		<div className='app'>
+		<div className='app container mt-5'>
 			{question ? showScore ? (
-				<div className='score-section'>
-					You scored {score} out of {question.length}
-                    <button onClick={goHome}>Home</button>
+				<div className='score-section col'>
+					<div className='row'>
+						<div className='col'>
+							You scored {score} out of {question.length}
+						</div>
+					</div>
+                    <div className='row'>
+						<div className='col'>
+							<button onClick={goHome}>Home</button>
+						</div>
+					</div>
+					
 				</div>
 			) : (
 				<>
-					<div className='question-section'>
+					<div className='question-section' align='center'>
 						<div className='question-count'>
-							<span>Question {currentQuestion + 1}</span>/{question.length}
+							<h3>Question {currentQuestion + 1} of {question.length}</h3>
 						</div>
-						<div className='question-text'>{question[currentQuestion].question}</div>
-					</div>
+						<div className='question-text'>{question[currentQuestion].question}
+						</div>
+					
 				
 					<div className='answer-section'>
 						{question[currentQuestion].answers.map((answer) => (
-							<button onClick={() => handleAnswerOptionClick(answer)}>{answer.answer}</button>
+							<div className='my-2'>
+								<button className='my-button' onClick={() => handleAnswerOptionClick(answer)}>{answer.answer}</button>
+							</div>
 						))}
 					</div> 
+					</div>		
 				</>
 			) : <></> }
 		</div>
