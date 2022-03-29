@@ -23,7 +23,7 @@ function App() {
             <Route path= "/" element={<Landing setUser={setUser} user={user}/>}/>
             <Route path= "/home" element={<Home setUser={setUser} user={user}/>}/>
             <Route path= "/profile" element={<Profile setUser={setUser} user={user}/>}/>
-            <Route path= "/quiz/:id" element={<Quiz />}/>
+            <Route path= "/quizzes/:id" element={<Quiz />}/>
         </Routes>
     </BrowserRouter>
     );

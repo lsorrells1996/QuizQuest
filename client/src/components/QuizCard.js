@@ -19,7 +19,7 @@ function QuizCard({ topic, title, id, user }) {
         }).then(r => {
             if (r.ok) {
                 r.json().then(newUserQuiz => setUserQuiz(newUserQuiz))
-                navigate(`/quiz/${id}`)
+                navigate(`/quizzes/${id}`)
             }
         })
     }
