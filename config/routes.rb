@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :user_quizzes, only: :create
   # resources :answers
-  resources :questions, only: :show
+  # resources :questions
   resources :quizzes, only: [:index, :show]
   resources :users, only: [:update, :destroy]
   # Routing logic: fallback requests for React Router.
@@ -14,5 +14,9 @@ Rails.application.routes.draw do
 
   post '/signup', to: 'users#create'
   get '/me', to: 'users#show'
+
+  get '/questions/:quiz_id', to: 'questions#show'
+
+  get '/answers/:question_id', to: 'answers#show'
 
 end

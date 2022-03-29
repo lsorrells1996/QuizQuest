@@ -1,74 +1,44 @@
 import React, {useState, useEffect} from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 
+
 function Quiz() {
 	const navigate = useNavigate()
-    const [answers, setAnswers] = useState([])
-	let params = useParams()
-
-    useEffect(() => {
-		// console.log(id)
-        fetch(`/quizzes/${params.id}`).then(r => {
-            if (r.ok) {
-                r.json().then(a => setAnswers(a))
-            } else {
-				console.log("failed")
-			}
-        })
-    }, [])
-
-    console.log(answers)
-
-    const questions = [
-		{
-			questionText: 'What is the capital of France?',
-			answerOptions: [
-				{ answerText: 'New York', isCorrect: false },
-				{ answerText: 'London', isCorrect: false },
-				{ answerText: 'Paris', isCorrect: true },
-				{ answerText: 'Dublin', isCorrect: false },
-			],
-		},
-		{
-			questionText: 'Who is CEO of Tesla?',
-			answerOptions: [
-				{ answerText: 'Jeff Bezos', isCorrect: false },
-				{ answerText: 'Elon Musk', isCorrect: true },
-				{ answerText: 'Bill Gates', isCorrect: false },
-				{ answerText: 'Tony Stark', isCorrect: false },
-			],
-		},
-		{
-			questionText: 'The iPhone was created by which company?',
-			answerOptions: [
-				{ answerText: 'Apple', isCorrect: true },
-				{ answerText: 'Intel', isCorrect: false },
-				{ answerText: 'Amazon', isCorrect: false },
-				{ answerText: 'Microsoft', isCorrect: false },
-			],
-		},
-		{
-			questionText: 'How many Harry Potter books are there?',
-			answerOptions: [
-				{ answerText: '1', isCorrect: false },
-				{ answerText: '4', isCorrect: false },
-				{ answerText: '6', isCorrect: false },
-				{ answerText: '7', isCorrect: true },
-			],
-		},
-	];
-
+    const [question, setQuestion] = useState(null)
+	const [correctAnswer, setCorrectAnswer] = useState('')
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
+	let params = useParams()
+	
+    useEffect(() => {
+        fetch(`/questions/${params.id}`).then(r => {
+            if (r.ok) {
+				console.log('fetch happening')
+                r.json().then(data => setQuestion(data))
+            } 
+        })
+		question ? fetch(`/answers/${question[currentQuestion].id}`).then(r => {
+			if (r.ok) {
+				console.log('this happened')
+				r.json().then(data => setCorrectAnswer(data))
+			}
+		}) : console.log('meow')
+    }, [])
+	
+	question ? console.log(question) : console.log('idk')
+	const handleAnswerOptionClick = (answer) => {
 
-	const handleAnswerOptionClick = (isCorrect) => {
-		if (isCorrect) {
+
+		if (answer.correct === correctAnswer.correct) {
 			setScore(score + 1);
+			console.log('This was right')
+		} else {
+			console.log('this was wrong')
 		}
 
 		const nextQuestion = currentQuestion + 1;
-		if (nextQuestion < questions.length) {
+		if (nextQuestion < question.length) {
 			setCurrentQuestion(nextQuestion);
 		} else {
 			setShowScore(true);
@@ -79,28 +49,29 @@ function Quiz() {
         navigate('/home')
     }
 
+
 	return (
 		<div className='app'>
-			{showScore ? (
+			{question ? showScore ? (
 				<div className='score-section'>
-					You scored {score} out of {questions.length}
+					You scored {score} out of {question.length}
                     <button onClick={goHome}>Home</button>
 				</div>
 			) : (
 				<>
 					<div className='question-section'>
 						<div className='question-count'>
-							<span>Question {currentQuestion + 1}</span>/{questions.length}
+							<span>Question {currentQuestion + 1}</span>/{question.length}
 						</div>
-						<div className='question-text'>{questions[currentQuestion].questionText}</div>
+						<div className='question-text'>{question[currentQuestion].question}</div>
 					</div>
 					<div className='answer-section'>
-						{questions[currentQuestion].answerOptions.map((answerOption) => (
-							<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+						{question[currentQuestion].answers.map((answer) => (
+							<button onClick={() => handleAnswerOptionClick(answer)}>{answer.answer}</button>
 						))}
 					</div>
 				</>
-			)}
+			) : <></> }
 		</div>
 	);
 }
