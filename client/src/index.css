@@ -5,7 +5,7 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #5aa2e0;
+    background-color: #393E46;
   }
   
   code {
@@ -32,6 +32,16 @@ body {
     box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
     display: flex;
     justify-content: space-evenly;
+  }
+
+  .card-header {
+    background-color: #222831;
+    color: #EEEEEE;
+  }
+
+  .card-body {
+    background-color: #393E46;
+    color: #EEEEEE;
   }
 
   .score-section {

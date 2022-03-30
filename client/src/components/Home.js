@@ -48,7 +48,7 @@ function Home( {setUser, user} ) {
             <div className='container'>
                 <div className='row'>
                     <div className='col mt-5' align='center'>
-                        <div className="card border border-primary" align='center' style={{ maxWidth: '500px', minHeight: '500px' }}>
+                        <div className="card border" align='center' style={{ maxWidth: '500px', minHeight: '500px' }}>
                             <h5 className="card-header">{user ? `${user.username}'s Stats!` : <></>}</h5>
                             <div className="card-body">
                                 <h5 className="card-title my-3">Math</h5>
@@ -68,7 +68,7 @@ function Home( {setUser, user} ) {
                     })}
                     </div>
                     <div className='col mt-5'>
-                        <div className="card border border-danger" align='center' style={{ maxWidth: '500px', minHeight: '500px' }}>
+                        <div className="card border" align='center' style={{ maxWidth: '500px', minHeight: '500px' }}>
                             <h5 className="card-header">Leaderboard!</h5>
                             <div className="card-body">
                                 <h5 className="card-title my-3">Math</h5>
