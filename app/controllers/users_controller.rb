@@ -20,6 +20,12 @@ class UsersController < ApplicationController
         render json: current_user, status: :ok
     end
 
+    def update_password
+        current_user.update!(user_params)
+        session.delete :user_id
+        head :no_content
+    end
+
     def destroy
         current_user.destroy
         head :no_content

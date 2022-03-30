@@ -11,7 +11,7 @@ function NavBar({setUser, user}) {
         navigate('/')
       }
     })
-  }
+  } 
     
     return (
     <nav className="navbar navbar-light bg-secondary">

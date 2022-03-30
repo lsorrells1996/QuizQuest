@@ -8,6 +8,7 @@ function Landing({setUser, user}) {
     const [createPassword, setCreatePassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
     const [email, setEmail] = useState('')
+    const [errors, setErrors] = useState(null)
     const navigate = useNavigate()
 
     const onLogin = e => {
@@ -26,6 +27,10 @@ function Landing({setUser, user}) {
                 // What I'm not getting is that user is "null" if you log it here:
                 r.json().then(user => setUser(user))
                 navigate('/home')
+            } else {
+                if (r.status === 401) {
+                    r.json().then(json => setErrors(json.error))
+                }
             }
         })
     }
@@ -47,18 +52,22 @@ function Landing({setUser, user}) {
             if (r.ok) {
                 r.json().then(user => setUser(user))
                 navigate('/home')
+            } else {
+                if (r.status === 422) {
+                    r.json().then(json => setErrors(json.errors))
+                }
             }
         })
     }
-
     return (
     <div className='container'>
         <div align='center' className='my-5'>
             <h1>Welcome to Quiz Town!</h1>
         </div>
         <div className='col'>
-            <form onSubmit={onLogin} align="center" className='container'>
+            {errors ? <form onSubmit={onLogin} align="center" className='container'>
                 <div className='row'>
+                    <p style={{color: "red"}}>{`${errors}`}</p>
                     <label><div>Username</div>
                         <input className='mb-3 ms-3' onChange={(e) => setUsername(e.target.value)} type="text" placeholder="Username..."/>
                     </label>
@@ -71,7 +80,22 @@ function Landing({setUser, user}) {
                 <div>
                     <button type="submit">Login</button>
                 </div>
-            </form>
+            </form> : 
+            <form onSubmit={onLogin} align="center" className='container'>
+            <div className='row'>
+                <label><div>Username</div>
+                    <input className='mb-3 ms-3' onChange={(e) => setUsername(e.target.value)} type="text" placeholder="Username..."/>
+                </label>
+            </div>
+            <div className='row'>
+                <label><div>Password</div>
+                    <input className='mb-4 ms-3' onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password..."/>
+                </label>
+            </div>
+            <div>
+                <button type="submit">Login</button>
+            </div>
+        </form> }
         </div>
         <div className='col'>
             <form onSubmit={onSignup} align="center" className='container'>

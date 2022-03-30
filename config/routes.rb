@@ -15,9 +15,9 @@ Rails.application.routes.draw do
 
   post '/signup', to: 'users#create'
   get '/me', to: 'users#show'
+  patch '/update_password', to: 'users#update_password'
 
   patch '/score', to: 'user_quizzes#update'
 
   get '/current', to: 'user_data#show'
-
 end

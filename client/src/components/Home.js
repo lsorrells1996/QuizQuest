@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from "react-router-dom"
 import NavBar from './NavBar'
 import QuizCard from './QuizCard'
 
 function Home( {setUser, user} ) {
-    // const navigate = useNavigate()
     const [quizzes, setQuizzes] = useState([])
     const [userData, setUserData] = useState(null)
     useEffect(() => {
