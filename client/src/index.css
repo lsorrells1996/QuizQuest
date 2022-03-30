@@ -5,6 +5,7 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #5aa2e0;
   }
   
   code {
@@ -13,7 +14,7 @@ body {
   }
   
   a {
-    color: black;
+    color: white;
   }
 
   ul.nav a:hover { 
@@ -21,7 +22,7 @@ body {
   }
 
   .app {
-    background-color: #0084ff;
+    background-color: #6cb6f5;
     color: white;
     width: 450px;
     min-height: 200px;

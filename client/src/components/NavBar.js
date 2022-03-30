@@ -14,7 +14,7 @@ function NavBar({setUser, user}) {
   } 
     
     return (
-    <nav className="navbar navbar-light bg-secondary">
+    <nav className="navbar" style={{backgroundColor: "#3a3d42"}}>
         <ul className="nav">
             <li className='nav-item'>
                 <a className="navbar-brand" href="/home">
@@ -23,7 +23,9 @@ function NavBar({setUser, user}) {
                 </a>
             </li>
             <li className="nav-item">
-                <a className="nav-link link-dark" href="/profile">Profile</a>
+                <a className="nav-link" href="/profile">
+                  <img src='https://res.cloudinary.com/dhaek7qxl/image/upload/v1648676854/171-1712282_profile-icon-png-profile-icon-vector-png-transparent-removebg-preview_cjzaur.png'></img>
+                </a>
             </li>
         </ul>
         <a onClick={onLogout} className="btn btn-primary me-5">Logout</a>
