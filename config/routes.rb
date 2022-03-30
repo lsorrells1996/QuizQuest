@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   patch '/score', to: 'user_quizzes#update'
 
   get '/current', to: 'user_data#show'
+  get '/all', to: 'user_data#top_scores'
 
 end
