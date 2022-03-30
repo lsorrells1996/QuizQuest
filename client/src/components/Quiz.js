@@ -8,6 +8,7 @@ function Quiz() {
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
 	const [finalScore, setFinalScore] = useState(0)
+	const [textGame, setTextGame] = useState([])
 	let params = useParams()
 
 	useEffect(() => {
@@ -16,10 +17,16 @@ function Quiz() {
 			.then(r => setQuestion(r.questions))
 	}, [])
 
+	const battleText = ['You cast Fireball! It\'s a direct hit!', "Your Kamehameha is super effective!", "You dodge a swipe from the Monster and counter with your own UpSmash!"]
+	const damageText = ['The Monster sweeps your legs with it\'s slimy tail!', 'You managed to roll out of the way of the Monster\'s Acid Breath but some got on your shoulder. Ouch!', "The Monster charges you head on and rams its head into your ribcage!"]
+
 	const handleAnswerOptionClick = (answer) => {
 		if (answer.correct === true) {
 			setScore(score + 1);
-		} 
+			textGame.push(battleText[Math.floor(Math.random() * battleText.length)])
+		} else {
+			textGame.push(damageText[Math.floor(Math.random() * battleText.length)])
+		}
 
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < question.length) {
@@ -56,8 +63,9 @@ function Quiz() {
 				<div className='score-section col'>
 					<div className='row'>
 						<div className='col'>
-							You scored {score} out of {question.length}
+							<p>You scored {score} out of {question.length}</p>
 							{updateScore()}
+							{score >= 4 ?  <p>Hooray! You have vanquished the foul beast!</p> : <p>Barely got out alive on that one, better sharpen my skills and try again!</p>}
 						</div>
 					</div>
                     <div className='row'>
@@ -83,7 +91,11 @@ function Quiz() {
 								<button className='my-button' onClick={() => handleAnswerOptionClick(answer)}>{answer.answer}</button>
 							</div>
 						))}
-					</div> 
+					</div>
+					<p>Hurry use your skills to defeat the Monster!</p>
+						{textGame.map(e => {
+								return <p>{e}</p>
+						})} 	
 					</div>		
 				</>
 			) : <></> }
