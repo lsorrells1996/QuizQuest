@@ -17,13 +17,9 @@ function Quiz() {
 	}, [])
 
 	const handleAnswerOptionClick = (answer) => {
-		console.log(answer)
 		if (answer.correct === true) {
-			console.log(answer)
 			setScore(score + 1);
-		} else {
-			console.log('this was wrong')
-		}
+		} 
 
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < question.length) {
@@ -38,6 +34,7 @@ function Quiz() {
     }
 
 	const updateScore = () => {
+		console.log(score)
 		fetch('/score', {
 			method: 'PATCH',
 			headers: {

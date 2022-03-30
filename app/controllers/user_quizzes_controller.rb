@@ -4,6 +4,7 @@ class UserQuizzesController < ApplicationController
     end
 
     def update
+        # debugger
         user_quiz = UserQuiz.find_by(score: nil)
         render json: user_quiz.update!(u_q_params), status: :ok
     end

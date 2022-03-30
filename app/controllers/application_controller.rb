@@ -8,8 +8,8 @@ class ApplicationController < ActionController::API
         return render json: {error: "You are not logged in"}, status: :unauthorized unless current_user
     end
 
-    def current_user
-        User.find_by(id: session[:user_id])
+    def current_user  
+      User.find_by(id: session[:user_id])
     end
 
   private
