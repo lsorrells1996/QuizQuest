@@ -5,6 +5,8 @@ import QuizCard from './QuizCard'
 function Home( {setUser, user} ) {
     const [quizzes, setQuizzes] = useState([])
     const [userData, setUserData] = useState(null)
+    const [allData, setAllData] = useState(null)
+
     useEffect(() => {
         let myfetches = []
 
@@ -17,6 +19,11 @@ function Home( {setUser, user} ) {
             if (r.ok) {
                 r.json().then(r => setUserData(r))
             }
+        myfetches.push(fetch('/all').then(r => {
+            if (r.ok) {
+                r.json().then(r => setAllData(r))
+            }
+        }))
         }))
 
         Promise.all(myfetches)
@@ -25,6 +32,7 @@ function Home( {setUser, user} ) {
 
     console.log(quizzes)
     console.log(userData) 
+    console.log(allData)
     // useEffect(() => {
     //     fetch('/quizzes').then(r => {
     //         if (r.ok) {
@@ -63,9 +71,14 @@ function Home( {setUser, user} ) {
                         <div className="card border border-danger" align='center' style={{ maxWidth: '500px', minHeight: '500px' }}>
                             <h5 className="card-header">Leaderboard!</h5>
                             <div className="card-body">
-                                <h5 className="card-title">Title</h5>
-                                    {/* <p className="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
-                                
+                                <h5 className="card-title my-3">Math</h5>
+                                    <p className="card-text my-2">{allData ? `${allData.highest_math_user} has the best score in Math with a ${(allData.math_high_score/5)*100}%`: <></>}</p>
+                                <h5 className="card-title my-3">Science</h5>
+                                <p className="card-text my-2">{allData ? `${allData.highest_science_user} has the best score in Math with a ${(allData.science_high_score/5)*100}%`: <></>}</p>
+                                <h5 className="card-title my-3">History</h5>
+                                <p className="card-text my-2">{allData ? `${allData.highest_history_user} has the best score in Math with a ${(allData.history_high_score/5)*100}%`: <></>}</p>
+                                <h5 className="card-title my-3">Programming</h5>
+                                <p className="card-text my-2">{allData ? `${allData.highest_programming_user} has the best score in Math with a ${(allData.programming_high_score/5)*100}%`: <></>}</p>
                             </div>
                         </div>
                     </div>
