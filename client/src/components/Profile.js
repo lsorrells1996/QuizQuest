@@ -78,10 +78,10 @@ function Profile({setUser, user}) {
     <>
         <NavBar user={user} setUser={setUser}/>
         {user ? <h1>Hello {`${user.username}!`}</h1> : <></> }
-        <div className='col'>
+        <div className='col' align="center">
             <h3>Would you like to update...</h3>
             <button className="btn btn-primary mb-3 ms-3" onClick={toggleUsernameForm}>Username?</button>
-            <button className="btn btn-primary mb-3 ms-3"onClick={togglePasswordForm}>Password?</button>
+            <button className="btn btn-primary mb-3 ms-3" onClick={togglePasswordForm}>Password?</button>
             {showPasswordForm ? <form onSubmit={onPasswordUpdate} align="center" className='container'>
                 <div className='row'>
                     <label><div>New Password</div>
