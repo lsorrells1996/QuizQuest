@@ -26,7 +26,7 @@ function Home( {setUser, user} ) {
     }, [])
 
     console.log(quizzes)
-    console.log(userData)
+    console.log(userData) 
     // useEffect(() => {
     //     fetch('/quizzes').then(r => {
     //         if (r.ok) {
@@ -46,13 +46,13 @@ function Home( {setUser, user} ) {
                             <h5 className="card-header">{user ? `${user.username}'s Stats!` : <></>}</h5>
                             <div className="card-body">
                                 <h5 className="card-title my-3">Math</h5>
-                                <p className="card-text my-2">{`Your best score in Math is ${(5/5)*100}%`}</p>
+                                <p className="card-text my-2">{userData ? `Your best score in Math is ${(userData.highest_math_score/5)*100}%`: <></>}</p>
                                 <h5 className="card-title my-3">Science</h5>
-                                <p className="card-text my-2">{`Your best score in Math is ${(5/5)*100}%`}</p>
+                                <p className="card-text my-2">{userData ? `Your best score in Math is ${(userData.highest_science_score/5)*100}%`: <></>}</p>
                                 <h5 className="card-title my-3">History</h5>
-                                <p className="card-text my-2">{`Your best score in Math is ${(5/5)*100}%`}</p>
+                                <p className="card-text my-2">{userData ? `Your best score in Math is ${(userData.highest_history_score/5)*100}%`: <></>}</p>
                                 <h5 className="card-title my-3">Programming</h5>
-                                <p className="card-text my-2">{`Your best score in Math is ${(5/5)*100}%`}</p>
+                                <p className="card-text my-2">{userData ? `Your best score in Math is ${(userData.highest_programming_score/5)*100}%`: <></>}</p>
                             </div>
                         </div>
                     </div>
