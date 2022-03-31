@@ -58,48 +58,52 @@ function Quiz() {
 	}
 
 	return (
-		<div className='app container mt-5'>
-			{question ? showScore ? (
-				<div className='score-section col'>
-					<div className='row'>
-						<div className='col border' style={{ }}>
-							<p>You scored {score} out of {question.length}</p>
-							{updateScore()}
-							{score >= 4 ?  <p>Hooray! You have vanquished the foul beast!</p> : <p>Barely got out alive on that one, better sharpen my skills and try again!</p>}
+		<>
+			<div className='app container mt-5'>
+				{question ? showScore ? (
+					<div className='score-section col'>
+						<div className='row'>
+							<div className='col'>
+								<p>You scored {score} out of {question.length}</p>
+								{updateScore()}
+								{score >= 4 ?  <p>Hooray! You have vanquished the foul beast!</p> : <p>Barely got out alive on that one, better sharpen my skills and try again!</p>}
+							</div>
 						</div>
-					</div>
-                    <div className='row'>
-						<div className='col'>
-							<button onClick={goHome}>Home</button>
+						<div className='row'>
+							<div className='col'>
+								<button onClick={goHome}>Home</button>
+							</div>
 						</div>
+						
 					</div>
+				) : (
 					
-				</div>
-			) : (
-				<>
+						
 					<div className='question-section' align='center'>
 						<div className='question-count'>
 							<h3>Question {currentQuestion + 1} of {question.length}</h3>
 						</div>
 						<div className='question-text'>{question[currentQuestion].question}
 						</div>
-					
-				
-					<div className='answer-section'>
-						{question[currentQuestion].answers.map((answer) => (
-							<div className='my-2'>
-								<button className='my-button' onClick={() => handleAnswerOptionClick(answer)}>{answer.answer}</button>
-							</div>
-						))}
+						<div className='answer-section'>
+							{question[currentQuestion].answers.map((answer) => (
+								<div className='my-2'>
+									<button className='my-button' onClick={() => handleAnswerOptionClick(answer)}>{answer.answer}</button>
+								</div>
+							))}
+						</div>		
 					</div>
+				) : <></> }
+			</div>
+			<div className='container mt-5'>
+				<div className='other col' style={{background:'white'}}>
 					<p>Hurry use your skills to defeat the Monster!</p>
 						{textGame.map(e => {
-								return <p>{e}</p>
-						})} 	
-					</div>		
-				</>
-			) : <></> }
-		</div>
+							return <p>{e}</p>
+						})} 
+				</div>
+			</div>
+		</>
 	);
 }
 
