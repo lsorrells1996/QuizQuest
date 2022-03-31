@@ -7,9 +7,13 @@ function Quiz() {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
+	const [heroHP, setHeroHP] = useState(0)
+	const [heroGIF, setHeroGIF] = useState(null)
+	const [monsterGIF, setMonsterGIF] = useState(null)
 	const [finalScore, setFinalScore] = useState(0)
 	const [textGame, setTextGame] = useState([])
 	let params = useParams()
+	
 
 	useEffect(() => {
 		fetch(`/quizzes/${params.id}`)
@@ -24,8 +28,11 @@ function Quiz() {
 		if (answer.correct === true) {
 			setScore(score + 1);
 			textGame.push(battleText[Math.floor(Math.random() * battleText.length)])
+			setHeroGIF(heroAttack)
+			// setTimeout(setHeroGIF(heroIdle), 5000)
 		} else {
 			textGame.push(damageText[Math.floor(Math.random() * battleText.length)])
+			setHeroHP(heroHP + 1)
 		}
 
 		const nextQuestion = currentQuestion + 1;
@@ -66,6 +73,7 @@ function Quiz() {
 	const monsterHurt = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743943/Hurt_uxk2kw.gif'
 	const monsterDead = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648744027/Die_qxjavx.gif'
 
+
 	return (
 		<>
 			<div className='container mt-5'>
@@ -90,10 +98,10 @@ function Quiz() {
 				<>
 					<div className='row' align='center'>
 						<div className='col' align='center'>
-							<img src={heroIdle}/>
+							{<img src={heroIdle}/>}
 						</div>
 						<div className='col'>
-							<img src={monsterIdle}/>
+							{<img src={monsterIdle}/>}
 						</div>
 					</div>
 					<div className='row'>
