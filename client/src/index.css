@@ -6,7 +6,7 @@ body {
       sans-serif; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #393E46;
+    background-color: #21325E;
   }
   
   code {
@@ -18,8 +18,24 @@ body {
     color: white;
   }
 
+  ul.nav a:hover { 
+    color: #fff !important; 
+  }
+
+  h1 {
+    color: #F0F0F0;
+  }
+
+  div {
+    color: #F0F0F0;
+  }
+
+  p {
+    color: #000000;
+  }
+
   .app {
-    background-color: #00ADB5;
+    background-color: #3E497A;
     color: white;
     width: 600px;
     min-height: 200px;
@@ -32,13 +48,13 @@ body {
   }
 
   .card-header {
-    background-color: #222831;
-    color: #EEEEEE;
+    background-color: #3E497A;
+    color: #F1D00A;
   }
 
   .card-body {
     background-color: #393E46;
-    color: #EEEEEE;
+    color: #F0F0F0;
   }
 
   .hero-cage {
@@ -132,5 +148,37 @@ body {
   }
 
   .container {
-    max-width: '100%'
+    max-width: '100%';
+  }
+
+  .card-text {
+    color: #F0F0F0;
+  }
+
+  .diff-btn-nav{
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #21325E;
+    background: #21325E;
+    display: flex;
+    padding: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 6px 0 black, -6px 0 black, 0 -6px black, 0 6px black;
+    margin: 6px auto;
+    cursor: pointer;
+  }
+
+  .diff-btn {
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #3E497A;
+    background: #3E497A;
+    display: flex;
+    padding: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 6px 0 black, -6px 0 black, 0 -6px black, 0 6px black;
+    margin: 6px auto;
+    cursor: pointer;
   }

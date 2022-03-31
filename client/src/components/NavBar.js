@@ -14,12 +14,12 @@ function NavBar({setUser, user}) {
   } 
     
     return (
-    <nav className="navbar" style={{backgroundColor: "#222831"}}>
+    <nav className="navbar" style={{backgroundColor: "#3E497A"}}>
         <ul className="nav">
             <li className='nav-item'>
                 <a className="navbar-brand" href="/home">
                 <img src="https://res.cloudinary.com/dhaek7qxl/image/upload/v1648750933/full_body01_blkrsp.png" alt="" width="70" height="60" className='mx-4 '/>
-                {user ? `Welcome to QuizTown, ${user.username}!` : 'Welcome to QuizTown' }
+                {user ? `Welcome to Quiz Quest, ${user.username}!` : 'Welcome to Quiz Quest' }
                 </a>
             </li>
         </ul>
@@ -28,7 +28,7 @@ function NavBar({setUser, user}) {
               <img className='me-3' src='https://res.cloudinary.com/dhaek7qxl/image/upload/v1648750342/head02_u6vrmj.png' width="50px"/>
               {`Profile`}
           </a>
-          <a onClick={onLogout} className="btn btn-primary me-5">Logout</a>
+          <a onClick={onLogout} className="diff-btn me-5">Logout</a>
         </div>
     </nav>
   )
