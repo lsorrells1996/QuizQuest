@@ -62,7 +62,7 @@ function Quiz() {
 			{question ? showScore ? (
 				<div className='score-section col'>
 					<div className='row'>
-						<div className='col'>
+						<div className='col border' style={{ }}>
 							<p>You scored {score} out of {question.length}</p>
 							{updateScore()}
 							{score >= 4 ?  <p>Hooray! You have vanquished the foul beast!</p> : <p>Barely got out alive on that one, better sharpen my skills and try again!</p>}
