@@ -107,7 +107,7 @@ function Quiz() {
 								{score >= 4 ?  <p style={{color: '#F1D00A'}}>Hooray! You have vanquished the foul beast!</p> : <p style={{color: '#F1D00A'}}>Barely got out alive on that one, better sharpen my skills and try again!</p>}
 							</div>
 							<div>
-								<button className='-btn' onClick={goHome}>Home</button>
+								<button className='diff-btn' onClick={goHome}>Home</button>
 							</div>
 						</div>
 						<div>
