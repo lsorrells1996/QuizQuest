@@ -78,7 +78,7 @@ function Landing({setUser, user}) {
                     </label>
                 </div>
                 <div>
-                    <button className='mb-4 mt-4' type="submit">Login</button>
+                    <button className='diff-btn' type="submit">Login</button>
                 </div>
             </form> : 
             <form onSubmit={onLogin} align="center" className='container'>
@@ -93,7 +93,7 @@ function Landing({setUser, user}) {
                 </label>
             </div>
             <div>
-                <button className='mb-4' type="submit">Login</button>
+                <button className='diff-btn' type="submit">Login</button>
             </div>
         </form> }
         </div>
@@ -120,7 +120,7 @@ function Landing({setUser, user}) {
                     </label>
                 </div>
                 <div>
-                    <button type="submit">Create Account</button>
+                    <button className='diff-btn' type="submit">Create Account</button>
                 </div>
             </form>
         </div>

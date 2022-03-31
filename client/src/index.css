@@ -40,7 +40,6 @@ body {
     width: 600px;
     min-height: 200px;
     height: min-content;
-    border-radius: 5px;
     padding: 20px;
     box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
     display: flex;
@@ -71,6 +70,8 @@ body {
   .question-section {
     width: 100%;
     position: relative;
+    box-shadow: 6px 0 black, -6px 0 black, 0 -6px black, 0 6px black;
+    margin: 6px auto;
   }
   
   .question-count {
@@ -96,13 +97,13 @@ body {
     width: 70%;
     font-size: 16px;
     color: #ffffff;
-    background-color: #252d4a;
-    border-radius: 15px;
+    background-color: #21325E;
     display: flex;
     padding: 5px;
     justify-content: flex-start;
     align-items: center;
-    border: 5px solid #234668;
+    box-shadow: 6px 0 black, -6px 0 black, 0 -6px black, 0 6px black;
+    margin: 6px auto;
     cursor: pointer;
   }
 

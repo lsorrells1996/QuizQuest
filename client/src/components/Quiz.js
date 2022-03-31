@@ -33,14 +33,22 @@ function Quiz() {
 			setTimeout(() => setMonsterGIF(monsterIdle), 600)
 			if (heroHP >= 2) {
 				setTimeout(() => setHeroGIF(heroStun), 600)
+				setTimeout(() => setHeroGIF(heroStun2), 600)
 			} else {
 				setTimeout(() => setHeroGIF(heroIdle), 600)
 			}
 		} else {
 			textGame.push(damageText[Math.floor(Math.random() * battleText.length)])
-			showStunnedHero()
+			setHeroHP(heroHP + 1)
 			setMonsterGIF(monsterAttack)
+			setHeroGIF(heroHurt)
 			setTimeout(() => setMonsterGIF(monsterIdle), 500)
+			if (heroHP >= 2) {
+				setTimeout(() => setHeroGIF(heroStun), 600)
+				setTimeout(() => setHeroGIF(heroStun2), 600)
+			} else {
+				setTimeout(() => setHeroGIF(heroIdle), 500)
+			}
 		}
 
 		const nextQuestion = currentQuestion + 1;
@@ -51,12 +59,7 @@ function Quiz() {
 		}
 	};
 
-	const showStunnedHero = () => {
-		setHeroHP(heroHP + 1)
-		if (heroHP >= 2) {
-			setHeroGIF(heroStun)
-		}
-	}
+	
 
     function goHome() {
         navigate('/home')
@@ -81,7 +84,9 @@ function Quiz() {
 	// const heroIdle = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648742687/Idle_pzfn7b.gif'
 	const heroIdle = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648742687/Idle_pzfn7b.gif'
 	const heroAttack = 'https://res.cloudinary.com/dhaek7qxl/image/upload/v1648757300/Attack01_uanris.gif'
+	const heroHurt = 'https://res.cloudinary.com/dhaek7qxl/image/upload/v1648758254/hurt_mptpmj.gif'
 	const heroStun = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743666/stun_cxd9hr.gif'
+	const heroStun2 = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648759059/Webp.net-gifmaker_ppwpib.gif'
 	const heroDead = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743773/Die_ylihnn.gif'
 	const monsterIdle = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648742805/Idle_usqkdw.gif'
 	const monsterAttack = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743884/Attack_n1z9wv.gif'
@@ -124,11 +129,12 @@ function Quiz() {
 						</div>
 					</div>
 					<div className='row'>
-						<div className='app question-section col' align='center'>
+						<div className='app question-section col ' align='center'>
 							<div className='question-count'>
 								<h3>Question {currentQuestion + 1} of {question.length}</h3>
 							</div>
-							<div className='question-text'>{question[currentQuestion].question}
+							<div className='question-text' >
+								{question[currentQuestion].question}
 							</div>
 							<div className='answer-section'>
 								{question[currentQuestion].answers.map((answer) => (
