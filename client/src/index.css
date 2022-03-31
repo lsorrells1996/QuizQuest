@@ -18,10 +18,6 @@ body {
     color: white;
   }
 
-  ul.nav a:hover { 
-    color: #fff !important; 
-  }
-
   .app {
     background-color: #00ADB5;
     color: white;
@@ -88,7 +84,23 @@ body {
     border: 5px solid #234668;
     cursor: pointer;
   }
+
+  .navbar {
+    align-content: center;
+    text-align: center;
+    border-bottom: 1px solid #EEEEEE;
+    border-top: 1px solid #EEEEEE;
+  }
   
+  .nav {
+    align-items: center;
+  }
+
+  .nav-item li {
+    display: inline-block;
+    text-align:center;
+  }
+
   .correct {
     background-color: #2f922f;
   }
@@ -113,7 +125,7 @@ body {
     box-shadow: 6px 0 black, -6px 0 black, 0 -6px black, 0 6px black;
     margin: 6px auto;
   }
-  
+
   .container {
     max-width: '100%'
   }

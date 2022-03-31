@@ -18,17 +18,18 @@ function NavBar({setUser, user}) {
         <ul className="nav">
             <li className='nav-item'>
                 <a className="navbar-brand" href="/home">
-                <img src="https://res.cloudinary.com/dhaek7qxl/image/upload/v1648183355/Book-icon_anzcyj.jpg" alt="" width="30" height="24" className='mx-2'></img>
-                {user ? `Welcome to QuizTown, ${user.username}` : 'Welcome to QuizTown' }
-                </a>
-            </li>
-            <li className="nav-item">
-                <a className="nav-link" href="/profile">
-                  <img src='https://res.cloudinary.com/dhaek7qxl/image/upload/v1648676854/171-1712282_profile-icon-png-profile-icon-vector-png-transparent-removebg-preview_cjzaur.png' width="50px"></img>
+                <img src="https://res.cloudinary.com/dhaek7qxl/image/upload/v1648750933/full_body01_blkrsp.png" alt="" width="70" height="60" className='mx-4 '/>
+                {user ? `Welcome to QuizTown, ${user.username}!` : 'Welcome to QuizTown' }
                 </a>
             </li>
         </ul>
-        <a onClick={onLogout} className="btn btn-primary me-5">Logout</a>
+        <div>
+          <a className="navbar-brand" href="/profile">
+              <img className='me-3' src='https://res.cloudinary.com/dhaek7qxl/image/upload/v1648750342/head02_u6vrmj.png' width="50px"/>
+              {`Profile`}
+          </a>
+          <a onClick={onLogout} className="btn btn-primary me-5">Logout</a>
+        </div>
     </nav>
   )
 }
