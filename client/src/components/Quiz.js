@@ -67,9 +67,9 @@ function Quiz() {
 			}
 		})
 	}
-
+	// const heroIdle = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648742687/Idle_pzfn7b.gif'
 	const heroIdle = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648742687/Idle_pzfn7b.gif'
-	const heroAttack = 'https://res.cloudinary.com/dhaek7qxl/image/upload/c_limit,h_500,w_500/v1648743353/Attack01_ze9j2x.gif'
+	const heroAttack = 'https://res.cloudinary.com/dhaek7qxl/image/upload/v1648757300/Attack01_uanris.gif'
 	const heroStun = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743666/stun_cxd9hr.gif'
 	const heroDead = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743773/Die_ylihnn.gif'
 	const monsterIdle = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648742805/Idle_usqkdw.gif'
@@ -102,10 +102,14 @@ function Quiz() {
 				<>
 					<div className='row' align='center'>
 						<div className='col' align='center'>
-							{heroGIF ? <img src={heroGIF}/> :<img src={heroIdle}/>}
+							<div className='hero-cage' >
+							{heroGIF ? <img src={heroGIF} style={{"height": "100%", "width": "100%"}}/> :<img src={heroIdle} style={{"height": "100%", "width": "100%"}}/>}
+							</div>
 						</div>
 						<div className='col'>
-							{monsterGIF ? <img src={monsterGIF}/> : <img src={monsterIdle}/>}
+							<div className='hero-cage'>
+							{monsterGIF ? <img src={monsterGIF} style={{"height": "100%", "width": "100%"}}/> : <img src={monsterIdle} style={{"height": "100%", "width": "100%"}}/>}
+							</div>
 						</div>
 					</div>
 					<div className='row'>
