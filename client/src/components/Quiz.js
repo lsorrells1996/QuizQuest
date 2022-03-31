@@ -29,10 +29,14 @@ function Quiz() {
 			setScore(score + 1);
 			textGame.push(battleText[Math.floor(Math.random() * battleText.length)])
 			setHeroGIF(heroAttack)
-			// setTimeout(setHeroGIF(heroIdle), 5000)
+			setMonsterGIF(monsterHurt)
+			setTimeout(() => setMonsterGIF(monsterIdle), 600)
+			setTimeout(() => setHeroGIF(heroIdle), 600)
 		} else {
 			textGame.push(damageText[Math.floor(Math.random() * battleText.length)])
 			setHeroHP(heroHP + 1)
+			setMonsterGIF(monsterAttack)
+			setTimeout(() => setMonsterGIF(monsterIdle), 500)
 		}
 
 		const nextQuestion = currentQuestion + 1;
@@ -65,7 +69,7 @@ function Quiz() {
 	}
 
 	const heroIdle = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648742687/Idle_pzfn7b.gif'
-	const heroAttack = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743353/Attack01_ze9j2x.gif'
+	const heroAttack = 'https://res.cloudinary.com/dhaek7qxl/image/upload/c_limit,h_500,w_500/v1648743353/Attack01_ze9j2x.gif'
 	const heroStun = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743666/stun_cxd9hr.gif'
 	const heroDead = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743773/Die_ylihnn.gif'
 	const monsterIdle = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648742805/Idle_usqkdw.gif'
@@ -89,7 +93,7 @@ function Quiz() {
 						</div>
 						<div className='row'>
 							<div className='col'>
-								<button onClick={goHome}>Home</button>
+								<button className='btn btn-primary border border-dark' onClick={goHome}>Home</button>
 							</div>
 						</div>
 						
@@ -98,10 +102,10 @@ function Quiz() {
 				<>
 					<div className='row' align='center'>
 						<div className='col' align='center'>
-							{<img src={heroIdle}/>}
+							{heroGIF ? <img src={heroGIF}/> :<img src={heroIdle}/>}
 						</div>
 						<div className='col'>
-							{<img src={monsterIdle}/>}
+							{monsterGIF ? <img src={monsterGIF}/> : <img src={monsterIdle}/>}
 						</div>
 					</div>
 					<div className='row'>
