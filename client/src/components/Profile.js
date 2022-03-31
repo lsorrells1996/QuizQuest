@@ -77,11 +77,11 @@ function Profile({setUser, user}) {
     return (
     <>
         <NavBar user={user} setUser={setUser}/>
-        {user ? <h1>Hello {`${user.username}!`}</h1> : <></> }
+        {user ? <h1 align="center" style={{color: '#F1D00A'}}>Hello {`${user.username}!`}</h1> : <></> }
         <div className='col' align="center">
             <h3>Would you like to update...</h3>
-            <button className="diff-btn my-4" onClick={toggleUsernameForm}>Username?</button>
-            <button className="diff-btn my-4" onClick={togglePasswordForm}>Password?</button>
+            <button className="diff-btn my-4 mx-3" onClick={toggleUsernameForm}>Username?</button>
+            <button className="diff-btn my-4 mx-3" onClick={togglePasswordForm}>Password?</button>
             {showPasswordForm ? <form onSubmit={onPasswordUpdate} align="center" className='container'>
                 <div className='row'>
                     <label><div>New Password</div>
@@ -92,7 +92,7 @@ function Profile({setUser, user}) {
                     </label>
                 </div>
                 <div>
-                    <button className="diff-btn my-4" type="submit">Update Password</button>
+                    <button className="diff-btn my-4 " type="submit">Update Password</button>
                 </div>
             </form> : null}
             {showUsernameForm ? <form onSubmit={onUsernameUpdate} align="center" className='container'>

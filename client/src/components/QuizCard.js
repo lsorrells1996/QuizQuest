@@ -31,7 +31,7 @@ function QuizCard({ topic, title, id, user }) {
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
                     {/* <p className="card-text">With supporting text below as a natural lead-in to additional content.</p> */}
-                    <a onClick={createUserQuiz} className="btn btn-primary border border-dark" style={{background:'#3E497A'}}>Quiz Me!</a>
+                    <a onClick={createUserQuiz} className="diff-btn" style={{background:'#3E497A'}}>Quiz Me!</a>
             </div>
         </div>
     </div >
