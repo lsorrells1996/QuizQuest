@@ -62,7 +62,7 @@ function Landing({setUser, user}) {
     return (
     <div className='container'>
         <div align='center' className='my-5'>
-            <h1>Welcome to Quiz Town!</h1>
+            <h1>Welcome to Quiz Quest!</h1>
         </div>
         <div className='col'>
             {errors ? <form onSubmit={onLogin} align="center" className='container'>
@@ -78,7 +78,7 @@ function Landing({setUser, user}) {
                     </label>
                 </div>
                 <div>
-                    <button type="submit">Login</button>
+                    <button className='mb-4 mt-4' type="submit">Login</button>
                 </div>
             </form> : 
             <form onSubmit={onLogin} align="center" className='container'>
@@ -93,7 +93,7 @@ function Landing({setUser, user}) {
                 </label>
             </div>
             <div>
-                <button type="submit">Login</button>
+                <button className='mb-4' type="submit">Login</button>
             </div>
         </form> }
         </div>

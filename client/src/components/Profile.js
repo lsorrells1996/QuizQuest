@@ -80,8 +80,8 @@ function Profile({setUser, user}) {
         {user ? <h1>Hello {`${user.username}!`}</h1> : <></> }
         <div className='col' align="center">
             <h3>Would you like to update...</h3>
-            <button className="btn btn-primary mb-3 ms-3" onClick={toggleUsernameForm}>Username?</button>
-            <button className="btn btn-primary mb-3 ms-3" onClick={togglePasswordForm}>Password?</button>
+            <button className="diff-btn my-4" onClick={toggleUsernameForm}>Username?</button>
+            <button className="diff-btn my-4" onClick={togglePasswordForm}>Password?</button>
             {showPasswordForm ? <form onSubmit={onPasswordUpdate} align="center" className='container'>
                 <div className='row'>
                     <label><div>New Password</div>
@@ -92,7 +92,7 @@ function Profile({setUser, user}) {
                     </label>
                 </div>
                 <div>
-                    <button className="btn btn-primary mb-3 ms-3" type="submit">Update Password</button>
+                    <button className="diff-btn my-4" type="submit">Update Password</button>
                 </div>
             </form> : null}
             {showUsernameForm ? <form onSubmit={onUsernameUpdate} align="center" className='container'>
@@ -102,12 +102,12 @@ function Profile({setUser, user}) {
                     </label>
                 </div>
                 <div>
-                    <button className="btn btn-primary mb-3 ms-3" type="submit">Update Username</button>
+                    <button className="diff-btn my-4" type="submit">Update Username</button>
                 </div>
             </form> : null}
             <h3>Would you like to delete your account?</h3>
             <div>
-                <button className="btn btn-danger mb-3 ms-3" type="button" onClick={handleAccountDelete}>Delete Account</button>
+                <button className="diff-btn my-4" style={{background: '#be1919'}} type="button" onClick={handleAccountDelete}>Delete Account</button>
             </div>
         </div>
     </>

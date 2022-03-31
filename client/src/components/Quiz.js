@@ -31,10 +31,14 @@ function Quiz() {
 			setHeroGIF(heroAttack)
 			setMonsterGIF(monsterHurt)
 			setTimeout(() => setMonsterGIF(monsterIdle), 600)
-			setTimeout(() => setHeroGIF(heroIdle), 600)
+			if (heroHP >= 2) {
+				setTimeout(() => setHeroGIF(heroStun), 600)
+			} else {
+				setTimeout(() => setHeroGIF(heroIdle), 600)
+			}
 		} else {
 			textGame.push(damageText[Math.floor(Math.random() * battleText.length)])
-			setHeroHP(heroHP + 1)
+			showStunnedHero()
 			setMonsterGIF(monsterAttack)
 			setTimeout(() => setMonsterGIF(monsterIdle), 500)
 		}
@@ -46,6 +50,13 @@ function Quiz() {
 			setShowScore(true);
 		}
 	};
+
+	const showStunnedHero = () => {
+		setHeroHP(heroHP + 1)
+		if (heroHP >= 2) {
+			setHeroGIF(heroStun)
+		}
+	}
 
     function goHome() {
         navigate('/home')
@@ -83,26 +94,26 @@ function Quiz() {
 			<div className='container mt-5'>
 
 				{question ? showScore ? (
-					<div className='app score-section col'>
+					<div className='score-section col'>
 						<div className='row'>
 							<div className='col'>
-								<p>You scored {score} out of {question.length}</p>
+								<p style={{color: '#F1D00A'}}>You scored {score} out of {question.length}</p>
 								{updateScore()}
-								{score >= 4 ?  <p>Hooray! You have vanquished the foul beast!</p> : <p>Barely got out alive on that one, better sharpen my skills and try again!</p>}
+								{score >= 4 ?  <p style={{color: '#F1D00A'}}>Hooray! You have vanquished the foul beast!</p> : <p style={{color: '#F1D00A'}}>Barely got out alive on that one, better sharpen my skills and try again!</p>}
+							</div>
+							<div>
+								<button className='diff-btn' onClick={goHome}>Home</button>
 							</div>
 						</div>
-						<div className='row'>
-							<div className='col'>
-								<button className='btn btn-primary border border-dark' onClick={goHome}>Home</button>
-							</div>
+						<div>
+							{score >= 4 ? <img src={monsterDead}/> : <img src={heroDead}/>}
 						</div>
-						
 					</div>
 				) : (
 				<>
 					<div className='row' align='center'>
 						<div className='col' align='center'>
-							{heroGIF ? <img src={heroGIF}/> :<img src={heroIdle}/>}
+							{heroGIF ? <img src={heroGIF}/> : <img src={heroIdle}/>}
 						</div>
 						<div className='col'>
 							{monsterGIF ? <img src={monsterGIF}/> : <img src={monsterIdle}/>}
