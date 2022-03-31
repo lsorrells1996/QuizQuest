@@ -57,11 +57,21 @@ function Quiz() {
 		})
 	}
 
+	const heroIdle = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648742687/Idle_pzfn7b.gif'
+	const heroAttack = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743353/Attack01_ze9j2x.gif'
+	const heroStun = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743666/stun_cxd9hr.gif'
+	const heroDead = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743773/Die_ylihnn.gif'
+	const monsterIdle = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648742805/Idle_usqkdw.gif'
+	const monsterAttack = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743884/Attack_n1z9wv.gif'
+	const monsterHurt = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743943/Hurt_uxk2kw.gif'
+	const monsterDead = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648744027/Die_qxjavx.gif'
+
 	return (
 		<>
-			<div className='app container mt-5'>
+			<div className='container mt-5'>
+
 				{question ? showScore ? (
-					<div className='score-section col'>
+					<div className='app score-section col'>
 						<div className='row'>
 							<div className='col'>
 								<p>You scored {score} out of {question.length}</p>
@@ -77,23 +87,33 @@ function Quiz() {
 						
 					</div>
 				) : (
-					
-						
-					<div className='question-section' align='center'>
-						<div className='question-count'>
-							<h3>Question {currentQuestion + 1} of {question.length}</h3>
+				<>
+					<div className='row' align='center'>
+						<div className='col' align='center'>
+							<img src={heroIdle}/>
 						</div>
-						<div className='question-text'>{question[currentQuestion].question}
+						<div className='col'>
+							<img src={monsterIdle}/>
 						</div>
-						<div className='answer-section'>
-							{question[currentQuestion].answers.map((answer) => (
+					</div>
+					<div className='row'>
+						<div className='app question-section col' align='center'>
+							<div className='question-count'>
+								<h3>Question {currentQuestion + 1} of {question.length}</h3>
+							</div>
+							<div className='question-text'>{question[currentQuestion].question}
+							</div>
+							<div className='answer-section'>
+								{question[currentQuestion].answers.map((answer) => (
 								<div className='my-2'>
 									<button className='my-button' onClick={() => handleAnswerOptionClick(answer)}>{answer.answer}</button>
 								</div>
-							))}
-						</div>		
+								))}
+							</div>		
+						</div>
 					</div>
-				) : <></> }
+					
+				</>	) : <></> }
 			</div>
 			<div className='container mt-5'>
 				<div className='other col px-3 pt-3 pb-1' style={{background:'white'}}>
@@ -102,6 +122,7 @@ function Quiz() {
 							return <p>{e}</p>
 						})} 
 				</div>
+
 			</div>
 		</>
 	);

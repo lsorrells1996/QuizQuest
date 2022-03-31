@@ -113,3 +113,7 @@ body {
     box-shadow: 6px 0 black, -6px 0 black, 0 -6px black, 0 6px black;
     margin: 6px auto;
   }
+  
+  .container {
+    max-width: '100%'
+  }
