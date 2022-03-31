@@ -28,7 +28,7 @@ function NavBar({setUser, user}) {
               <img className='me-3' src='https://res.cloudinary.com/dhaek7qxl/image/upload/v1648750342/head02_u6vrmj.png' width="50px"/>
               {`Profile`}
           </a>
-          <a onClick={onLogout} className="diff-btn ms-5">Logout</a>
+          <a onClick={onLogout} className="diff-btn-nav me-5">Logout</a>
         </div>
     </nav>
   )
