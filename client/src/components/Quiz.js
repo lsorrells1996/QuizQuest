@@ -87,11 +87,11 @@ function Quiz() {
 	const heroHurt = 'https://res.cloudinary.com/dhaek7qxl/image/upload/v1648758254/hurt_mptpmj.gif'
 	const heroStun = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743666/stun_cxd9hr.gif'
 	const heroStun2 = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648759059/Webp.net-gifmaker_ppwpib.gif'
-	const heroDead = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743773/Die_ylihnn.gif'
+	const heroDead = 'https://res.cloudinary.com/dhaek7qxl/image/upload/v1648743773/Die_ylihnn.gif'
 	const monsterIdle = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648742805/Idle_usqkdw.gif'
 	const monsterAttack = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743884/Attack_n1z9wv.gif'
 	const monsterHurt = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648743943/Hurt_uxk2kw.gif'
-	const monsterDead = 'https://res.cloudinary.com/dhaek7qxl/image/upload/e_loop/v1648744027/Die_qxjavx.gif'
+	const monsterDead = 'https://res.cloudinary.com/dhaek7qxl/image/upload/v1648744027/Die_qxjavx.gif'
 
 
 	return (
@@ -107,7 +107,7 @@ function Quiz() {
 								{score >= 4 ?  <p style={{color: '#F1D00A'}}>Hooray! You have vanquished the foul beast!</p> : <p style={{color: '#F1D00A'}}>Barely got out alive on that one, better sharpen my skills and try again!</p>}
 							</div>
 							<div>
-								<button className='diff-btn' onClick={goHome}>Home</button>
+								<button className='-btn' onClick={goHome}>Home</button>
 							</div>
 						</div>
 						<div>
@@ -129,20 +129,26 @@ function Quiz() {
 						</div>
 					</div>
 					<div className='row'>
-						<div className='app question-section col ' align='center'>
-							<div className='question-count'>
-								<h3>Question {currentQuestion + 1} of {question.length}</h3>
-							</div>
-							<div className='question-text' >
-								{question[currentQuestion].question}
-							</div>
-							<div className='answer-section'>
-								{question[currentQuestion].answers.map((answer) => (
-								<div className='my-2'>
-									<button className='my-button' onClick={() => handleAnswerOptionClick(answer)}>{answer.answer}</button>
+						<div className='app question-section container ' align='center'>
+							<div className='row' style={{"width": "100%"}}>
+								<div className='col'>
+									<div className='question-count row mt-2'>
+										<h2>Question {currentQuestion + 1} of {question.length}</h2>
+									</div>
+									<div className='question-text row' align={"left"}>
+										<h4>{question[currentQuestion].question}</h4>
+									</div>
 								</div>
-								))}
-							</div>		
+								<div className='col'>
+									<div className='answer-section'>
+										{question[currentQuestion].answers.map((answer) => (
+										<div className='my-2' alignContent={"left"}>
+											<button className='my-button' onClick={() => handleAnswerOptionClick(answer)}>{answer.answer}</button>
+										</div>
+										))}
+									</div>
+								</div>	
+							</div>	
 						</div>
 					</div>
 					

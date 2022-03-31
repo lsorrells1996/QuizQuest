@@ -175,7 +175,7 @@ body {
     color: #ffffff;
     background-color: #3E497A;
     background: #3E497A;
-    display: flex;
+    /* display: flex; */
     padding: 5px;
     justify-content: flex-start;
     align-items: center;
