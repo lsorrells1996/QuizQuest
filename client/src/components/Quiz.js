@@ -96,8 +96,8 @@ function Quiz() {
 				) : <></> }
 			</div>
 			<div className='container mt-5'>
-				<div className='other col' style={{background:'white'}}>
-					<p>Hurry use your skills to defeat the Monster!</p>
+				<div className='other col px-3 pt-3 pb-1' style={{background:'white'}}>
+					<p>Hurry! Use your skills to defeat the Monster!</p>
 						{textGame.map(e => {
 							return <p>{e}</p>
 						})} 

@@ -26,7 +26,7 @@ function QuizCard({ topic, title, id, user }) {
 
     return (
         <div className='container mt-5' align='center'>
-            <div className="card border" align='center' style={{ maxWidth: '500px' }}>
+            <div className="other" align='center' style={{ maxWidth: '500px' }}>
                 <h5 className="card-header">{topic}</h5>
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
