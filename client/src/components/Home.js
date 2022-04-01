@@ -45,6 +45,9 @@ function Home( {setUser, user} ) {
     return (
         <>
             <NavBar setUser={setUser} user={user}/>
+            <div align="center" className='py-0' style={{"max-height": "250px", "max-width": "100%", "display": "block"}}>
+                <img src="https://res.cloudinary.com/dhaek7qxl/image/upload/v1648765487/download-removebg-preview_upjpwz.png" id='header-logo'/>
+            </div>
             <div className='container'>
                 <div className='row'>
                     <div className='col mt-5' align='center'>
@@ -74,11 +77,11 @@ function Home( {setUser, user} ) {
                                 <h5 className="card-title my-3">Math</h5>
                                     <p className="card-text my-2">{allData ? `${allData.highest_math_user} has the best score in Math with a ${(allData.math_high_score/5)*100}%`: <></>}</p>
                                 <h5 className="card-title my-3">Science</h5>
-                                <p className="card-text my-2">{allData ? `${allData.highest_science_user} has the best score in Math with a ${(allData.science_high_score/5)*100}%`: <></>}</p>
+                                <p className="card-text my-2">{allData ? `${allData.highest_science_user} has the best score in Science with a ${(allData.science_high_score/5)*100}%`: <></>}</p>
                                 <h5 className="card-title my-3">History</h5>
-                                <p className="card-text my-2">{allData ? `${allData.highest_history_user} has the best score in Math with a ${(allData.history_high_score/5)*100}%`: <></>}</p>
+                                <p className="card-text my-2">{allData ? `${allData.highest_history_user} has the best score in History with a ${(allData.history_high_score/5)*100}%`: <></>}</p>
                                 <h5 className="card-title my-3">Programming</h5>
-                                <p className="card-text my-2">{allData ? `${allData.highest_programming_user} has the best score in Math with a ${(allData.programming_high_score/5)*100}%`: <></>}</p>
+                                <p className="card-text my-2">{allData ? `${allData.highest_programming_user} has the best score in Programming with a ${(allData.programming_high_score/5)*100}%`: <></>}</p>
                             </div>
                         </div>
                     </div>
