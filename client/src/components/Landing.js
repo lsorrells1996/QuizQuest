@@ -67,7 +67,7 @@ function Landing({setUser, user}) {
         <div align="center" className='py-0' style={{"max-height": "250px", "max-width": "100%", "display": "block"}}>
                 <img src="https://res.cloudinary.com/dhaek7qxl/image/upload/v1648765487/download-removebg-preview_upjpwz.png" id='landing-logo'/>
         </div>
-        <div className='col'>
+        <div className='col mt-5 pt-5'>
             {errors ? <form onSubmit={onLogin} align="center" className='container'>
                 <div className='row'>
                     <p style={{color: "red"}}>{`${errors}`}</p>
@@ -86,7 +86,7 @@ function Landing({setUser, user}) {
             </form> : 
             <form onSubmit={onLogin} align="center" className='container'>
             <div className='row'>
-                <label><div>Username</div>
+                <label><div className='mt-3'>Username</div>
                     <input className='mb-3 ms-3' onChange={(e) => setUsername(e.target.value)} type="text" placeholder="Username..."/>
                 </label>
             </div>
