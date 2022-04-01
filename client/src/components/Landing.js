@@ -61,8 +61,11 @@ function Landing({setUser, user}) {
     }
     return (
     <div className='container'>
-        <div align='center' className='my-5'>
-            <h1>Welcome to Quiz Quest!</h1>
+        {/* <div align='center' className='my-5'>
+            <h1>Welcome To</h1>
+        </div> */}
+        <div align="center" className='py-0' style={{"max-height": "250px", "max-width": "100%", "display": "block"}}>
+                <img src="https://res.cloudinary.com/dhaek7qxl/image/upload/v1648765487/download-removebg-preview_upjpwz.png" id='landing-logo'/>
         </div>
         <div className='col'>
             {errors ? <form onSubmit={onLogin} align="center" className='container'>

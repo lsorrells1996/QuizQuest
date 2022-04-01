@@ -107,7 +107,7 @@ function Quiz() {
 								{score >= 4 ?  <p style={{color: '#F1D00A'}}>Hooray! You have vanquished the foul beast!</p> : <p style={{color: '#F1D00A'}}>Barely got out alive on that one, better sharpen my skills and try again!</p>}
 							</div>
 							<div>
-								<button className='-btn' onClick={goHome}>Home</button>
+								<button className='diff-btn' onClick={goHome}>Home</button>
 							</div>
 						</div>
 						<div>
@@ -117,12 +117,12 @@ function Quiz() {
 				) : (
 				<>
 					<div className='row' align='center'>
-						<div className='col' align='center'>
+						<div className='col' align='right'>
 							<div className='hero-cage' >
 							{heroGIF ? <img src={heroGIF} style={{"height": "100%", "width": "100%"}}/> :<img src={heroIdle} style={{"height": "100%", "width": "100%"}}/>}
 							</div>
 						</div>
-						<div className='col'>
+						<div className='col' align='left'>
 							<div className='hero-cage'>
 							{monsterGIF ? <img src={monsterGIF} style={{"height": "100%", "width": "100%"}}/> : <img src={monsterIdle} style={{"height": "100%", "width": "100%"}}/>}
 							</div>

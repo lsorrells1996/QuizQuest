@@ -181,3 +181,19 @@ body {
     margin: 6px auto;
     cursor: pointer;
   }
+
+  #header-logo {
+    height: 500px;
+    width: 600px;
+    overflow: hidden;
+    position: relative;
+    top: -100px; 
+  }
+
+  #landing-logo {
+    height: 500px;
+    width: 600px;
+    overflow: hidden;
+    position: relative;
+    top: -120px; 
+  }
