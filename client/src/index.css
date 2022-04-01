@@ -197,3 +197,11 @@ body {
     position: relative;
     top: -120px; 
   }
+
+  .text-game {
+    height: 90px;
+    width: 80%;
+    overflow-y: auto;
+    box-shadow: 6px 0 black, -6px 0 black, 0 -6px black, 0 6px black;
+    margin: 6px auto;
+  }

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 
 function Quiz() {
@@ -28,6 +28,7 @@ function Quiz() {
 		if (answer.correct === true) {
 			setScore(score + 1);
 			textGame.push(battleText[Math.floor(Math.random() * battleText.length)])
+			scrollToBottom()
 			setHeroGIF(heroAttack)
 			setMonsterGIF(monsterHurt)
 			setTimeout(() => setMonsterGIF(monsterIdle), 600)
@@ -39,6 +40,7 @@ function Quiz() {
 			}
 		} else {
 			textGame.push(damageText[Math.floor(Math.random() * battleText.length)])
+			scrollToBottom()
 			setHeroHP(heroHP + 1)
 			setMonsterGIF(monsterAttack)
 			setHeroGIF(heroHurt)
@@ -59,7 +61,12 @@ function Quiz() {
 		}
 	};
 
-	
+	const messagesEndRef = useRef(null)
+
+	const scrollToBottom = () => {
+	  messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
+	}
+  
 
     function goHome() {
         navigate('/home')
@@ -154,14 +161,14 @@ function Quiz() {
 					
 				</>	) : <></> }
 			</div>
-			<div className='container mt-5'>
-				<div className='other col px-3 pt-3 pb-1' style={{background:'white'}}>
+			<div className='text-game mt-3 mb-'>
+				<div className='col px-3 pt-3 pb-1' style={{background:'white'}}>
 					<p>Hurry! Use your skills to defeat the Monster!</p>
 						{textGame.map(e => {
 							return <p>{e}</p>
 						})} 
 				</div>
-
+				<div ref={messagesEndRef}/>
 			</div>
 		</>
 	);
