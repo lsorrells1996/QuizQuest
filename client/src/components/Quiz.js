@@ -167,8 +167,8 @@ function Quiz() {
 						{textGame.map(e => {
 							return <p>{e}</p>
 						})} 
+				<div ref={messagesEndRef}/>		
 				</div>
-				<div ref={messagesEndRef}/>
 			</div>
 		</>
 	);
